@@ -90,7 +90,13 @@ with tab_p1:
         val_nenkin_current = df[df['account'].isin(['DC', 'iDeCo'])]['value'].sum()
         val_nisa_growth_current = df[(df['account'] == 'NISA') & (df['cat'] == '高配当')]['value'].sum()
 
-        # シミュレーション用変数 (運用利回り計算用)
+        # 口座属性別のシミュレーション用初期値
+        sim_nisa = val_nisa_current
+        sim_nenkin = val_nenkin_current
+        p_nisa = val_nisa_current
+        p_nenkin = val_nenkin_current
+
+        # シミュレーション用変数 (カテゴリ別運用利回り計算用)
         sim_k, sim_o, sim_j, sim_others = val_k, val_o, val_j, val_others
 
         # 拠出金（元本）のみを純粋に追跡する変数
@@ -129,15 +135,23 @@ with tab_p1:
                     p_j += monthly_j
                     principal += (monthly_k + monthly_o + monthly_j)
 
+                    # 積立はすべてNISA口座を想定
+                    sim_nisa += (monthly_k + monthly_o + monthly_j)
+                    p_nisa += (monthly_k + monthly_o + monthly_j)
+
                     nisa_used_growth += monthly_k
                     nisa_used_total += monthly_k
 
                 # 利回りの適用 (月次複利) ※0%の場合は計算しない
                 if growth_rate > 0:
-                    sim_k *= (1 + growth_rate)**(1/12)
-                    sim_o *= (1 + growth_rate)**(1/12)
-                    sim_j *= (1 + growth_rate)**(1/12)
-                    sim_others *= (1 + growth_rate)**(1/12)
+                    factor = (1 + growth_rate)**(1/12)
+                    sim_k *= factor
+                    sim_o *= factor
+                    sim_j *= factor
+                    sim_others *= factor
+                    
+                    sim_nisa *= factor
+                    sim_nenkin *= factor
 
             history.append(sim_k + sim_o + sim_j + sim_others)
             years_list.append(current_year + i)
@@ -146,6 +160,10 @@ with tab_p1:
         nisa_rem_total = max(0, 36000000 - nisa_used_total)
         nisa_rem_growth_raw = max(0, 24000000 - nisa_used_growth)
         nisa_rem_growth = min(nisa_rem_total, nisa_rem_growth_raw)
+
+        # 各口座の値上がり率算出（分母が0の場合は0.0%）
+        roi_nisa = ((sim_nisa - p_nisa) / p_nisa * 100) if p_nisa > 0 else 0.0
+        roi_nenkin = ((sim_nenkin - p_nenkin) / p_nenkin * 100) if p_nenkin > 0 else 0.0
 
         # サブヘッダー
         st.markdown('<p class="small-subheader">現在資産 ＆ 将来予測</p>', unsafe_allow_html=True)
@@ -157,12 +175,14 @@ with tab_p1:
         c4.metric("高配当投信 (現在)", f"{val_k/10000:,.0f} 万円")
 
         st.markdown("<div class='projection-bar'>", unsafe_allow_html=True)
-        m1, m2, m3, m4, m5 = st.columns(5)
+        m1, m2, m3, m4, m5, m6, m7 = st.columns(7)
         m1.metric(f"{years}年後 予測総資産額", f"{history[-1]/10000:,.0f} 万円")
         m2.metric("累計拠出元本", f"{principal/10000:,.0f} 万円")
-        m3.metric("高配当 予測評価額", f"{sim_k/10000:,.0f} 万円")
-        m4.metric("年間配当 (3.5%想定)", f"{(sim_k*0.035)/10000:,.0f} 万円")
-        m5.metric("月間配当受取額", f"{(sim_k*0.035/12):,.0f} 円")
+        m3.metric("NISA 予測額", f"{sim_nisa/10000:,.0f} 万円", f"+{roi_nisa:.1f}%" if roi_nisa > 0 else f"{roi_nisa:.1f}%")
+        m4.metric("DC/iDeCo 予測", f"{sim_nenkin/10000:,.0f} 万円", f"+{roi_nenkin:.1f}%" if roi_nenkin > 0 else f"{roi_nenkin:.1f}%")
+        m5.metric("高配当 予測評価額", f"{sim_k/10000:,.0f} 万円")
+        m6.metric("年間配当 (3.5%想定)", f"{(sim_k*0.035)/10000:,.0f} 万円")
+        m7.metric("月間配当受取額", f"{(sim_k*0.035/12):,.0f} 円")
         st.markdown("</div>", unsafe_allow_html=True)
 
         g_l, g_r = st.columns([1, 1])
