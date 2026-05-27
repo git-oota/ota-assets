@@ -7,7 +7,7 @@ import os
 from datetime import datetime
 
 # --- ページ設定 ---
-st.set_page_config(page_title="資産管理 | 太田家", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="資産管理", layout="wide", initial_sidebar_state="expanded")
 
 # --- 🏛️ 金融機関・コンサルティング風カスタムCSS ---
 st.markdown("""
@@ -27,7 +27,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="main-title">💼 資産管理</p>', unsafe_allow_html=True)
 
 # --- 🚀 データエンジン ---
 DATA_FILE = 'assets_db.json'
