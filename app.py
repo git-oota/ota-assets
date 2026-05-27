@@ -7,26 +7,23 @@ import os
 from datetime import datetime
 
 # --- ページ設定 ---
-st.set_page_config(page_title="資産管理", layout="wide", initial_sidebar_state="expanded")
+st.set_page_config(page_title="資産管理 | 太田家", layout="wide", initial_sidebar_state="expanded")
 
 # --- 🏛️ 金融機関・コンサルティング風カスタムCSS ---
 st.markdown("""
 <style>
     .block-container { padding-top: 1rem !important; padding-bottom: 0rem !important; max-width: 96% !important; }
     .main-title { background-color: #12234D; color: #FFFFFF; padding: 10px 20px; border-radius: 4px; font-size: 1.2rem !important; font-weight: 700; margin-bottom: 15px; border-left: 8px solid #2E5BFF; }
-
-    /* 📌 「現在資産 ＆ 将来予測」などのサブヘッダーフォントを1回り小さく設定 */
     .small-subheader { font-size: 1.1rem !important; font-weight: 600; color: #12234D; margin-top: 10px; margin-bottom: 10px; }
-
     div[data-testid="metric-container"] { background-color: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 4px; padding: 8px 12px !important; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
     div[data-testid="stMetricLabel"] > div { font-size: 0.75rem !important; color: #64748B !important; font-weight: 600; }
     div[data-testid="stMetricValue"] > div { font-size: 1.25rem !important; font-weight: 700 !important; color: #12234D !important; }
-
     .projection-bar { background-color: #F8FAFC; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-top: 2px solid #1E3A8A; }
     .nisa-bar { background-color: #FFFFFF; padding: 15px; border-radius: 8px; margin-top: 20px; border: 1px solid #E2E8F0; }
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown('<p class="main-title">💼 資産管理</p>', unsafe_allow_html=True)
 
 # --- 🚀 データエンジン ---
 DATA_FILE = 'assets_db.json'
@@ -95,20 +92,20 @@ with tab_p1:
 
         # シミュレーション用変数 (運用利回り計算用)
         sim_k, sim_o, sim_j, sim_others = val_k, val_o, val_j, val_others
-        
+
         # 拠出金（元本）のみを純粋に追跡する変数
         p_k, p_o, p_j, p_others = val_k, val_o, val_j, val_others
         principal = val_total
-        
+
         nisa_used_total = val_nisa_current
         nisa_used_growth = val_nisa_growth_current
         history = [val_total]
         years_list = [current_year]
 
         # 毎月の積立設定金額
-        monthly_k = 200000 
-        monthly_o = 25000  
-        monthly_j = 25000  
+        monthly_k = 200000
+        monthly_o = 25000
+        monthly_j = 25000
 
         # シミュレーションループ
         for i in range(1, years + 1):
@@ -117,49 +114,30 @@ with tab_p1:
                 sim_month_total = (current_year * 12 + current_month - 1) + (i - 1) * 12 + m
                 sim_y = sim_month_total // 12
                 sim_m = (sim_month_total % 12) + 1
-                
+
                 # 計画開始（2026年5月）からの通算月数を計算
                 months_since_start = (sim_y - start_year) * 12 + (sim_m - start_month)
-                
-                # 📌 計画開始から64ヶ月未満（0〜63ヶ月目）の間だけ積立を実行
+
+                # 📌 計画開始から64ヶ月未満の間だけ積立を実行
                 if 0 <= months_since_start < 64:
                     sim_k += monthly_k
                     sim_o += monthly_o
                     sim_j += monthly_j
-                    
-                    # 拠出金（元本）データにも加算
+
                     p_k += monthly_k
                     p_o += monthly_o
                     p_j += monthly_j
                     principal += (monthly_k + monthly_o + monthly_j)
-                    
+
                     nisa_used_growth += monthly_k
                     nisa_used_total += monthly_k
 
-                # 📌 スポット投資を絶対カレンダー（西暦・月）ベースで判定し、二重カウントを自動防止
-                # 2026年5月のスポット投資（日経平均240万+現金120万）
-                if sim_y == 2026 and sim_m == 5:
-                    if i == 1 and m == 0: # 現在が2026年5月時点のシミュレーション開始時のみ加算
-                        sim_j += 2400000 
-                        sim_others += 1200000 
-                        p_j += 2400000
-                        p_others += 1200000
-                        principal += 3600000
-                        nisa_used_total += 2400000 
-                
-                # 2027年1月のスポット投資（3連星240万）
-                if sim_y == 2027 and sim_m == 1:
-                    sim_k += 2400000 
-                    p_k += 2400000
-                    principal += 2400000
-                    nisa_used_growth += 2400000 
-                    nisa_used_total += 2400000  
-
-                # 利回りの適用 (月次複利)
-                sim_k *= (1 + growth_rate)**(1/12)
-                sim_o *= (1 + growth_rate)**(1/12)
-                sim_j *= (1 + growth_rate)**(1/12)
-                sim_others *= (1 + growth_rate)**(1/12)
+                # 利回りの適用 (月次複利) ※0%の場合は計算しない
+                if growth_rate > 0:
+                    sim_k *= (1 + growth_rate)**(1/12)
+                    sim_o *= (1 + growth_rate)**(1/12)
+                    sim_j *= (1 + growth_rate)**(1/12)
+                    sim_others *= (1 + growth_rate)**(1/12)
 
             history.append(sim_k + sim_o + sim_j + sim_others)
             years_list.append(current_year + i)
@@ -169,9 +147,9 @@ with tab_p1:
         nisa_rem_growth_raw = max(0, 24000000 - nisa_used_growth)
         nisa_rem_growth = min(nisa_rem_total, nisa_rem_growth_raw)
 
-        # サブヘッダーのフォントを一回り小さく修正
+        # サブヘッダー
         st.markdown('<p class="small-subheader">現在資産 ＆ 将来予測</p>', unsafe_allow_html=True)
-        
+
         c1, c2, c3, c4 = st.columns(4)
         c1.metric("現在の総資産額", f"{val_total/10000:,.0f} 万円")
         c2.metric("NISA口座 (現在)", f"{val_nisa_current/10000:,.0f} 万円")
@@ -188,18 +166,15 @@ with tab_p1:
         st.markdown("</div>", unsafe_allow_html=True)
 
         g_l, g_r = st.columns([1, 1])
-        
+
         with g_l:
             st.markdown("**ポートフォリオ（拠出金）**")
-            
-            # 純粋な「累計拠点金（元本）」のみで構成比率を比較
             data_b = {
                 'カテゴリ': ["高配当", "オルカン", "日本株", "その他", "高配当", "オルカン", "日本株", "その他"],
                 '金額(万円)': [val_k/10000, val_o/10000, val_j/10000, val_others/10000, p_k/10000, p_o/10000, p_j/10000, p_others/10000],
                 'タイミング': ["現在", "現在", "現在", "現在", f"{years}年後", f"{years}年後", f"{years}年後", f"{years}年後"]
             }
             df_b = pd.DataFrame(data_b)
-            
             df_b['比率'] = df_b.apply(lambda row: (row['金額(万円)'] * 10000) / val_total * 100 if row['タイミング'] == "現在" else (row['金額(万円)'] * 10000) / principal * 100, axis=1)
             df_b['表示用テキスト'] = df_b.apply(lambda row: f"{row['比率']:.1f}%<br>({row['金額(万円)']:.0f}万)", axis=1)
 
