@@ -1,0 +1,154 @@
+[
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "現金",
+        "asset_type": "現金",
+        "value": 1217001.0,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・ｉシェアーズ・インド株式インデックス・ファンド",
+        "asset_type": "成長",
+        "value": 177941.64,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ日本高配当株式（分配）ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 607684.51,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・Ｖ・米国高配当株式インデックス・ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 443002.52,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・Ｓ・米国高配当株式ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 508516.25,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・ｉシェアーズ・ゴールドファンド（為替ヘッジなし）",
+        "asset_type": "成長",
+        "value": 572871.93,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "現金",
+        "asset_type": "現金",
+        "value": 529297.0,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＮＴＴ",
+        "asset_type": "成長",
+        "value": 91560.0,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "イーストスプリング・インド・コア株式ファンド",
+        "asset_type": "成長",
+        "value": 782445.65,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・ｉシェアーズ・インド株式インデックス・ファンド",
+        "asset_type": "成長",
+        "value": 397052.44,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ日本高配当株式（分配）ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 610627.06,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・Ｖ・米国高配当株式インデックス・ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 316251.73,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・Ｓ・米国高配当株式ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 639298.91,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・ｉシェアーズ・ゴールドファンド（為替ヘッジなし）",
+        "asset_type": "成長",
+        "value": 620028.47,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "秀行",
+        "account": "DC",
+        "item_name": "ニッセイ日経平均インデックスファンド（購入・換金手数料なし）（ﾆｯｾｲ日経平均ｲﾝﾃﾞｯｸｽ(購入･換金手数料なし)）",
+        "asset_type": "積立",
+        "value": 1250254.0,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "秀行",
+        "account": "DC",
+        "item_name": "ｅＭＡＸＩＳ　Ｓｌｉｍ　全世界株式（オール・カントリー）（eMAXIS Slim 全世界株式(ｵｰﾙ･ｶﾝﾄﾘｰ)）",
+        "asset_type": "積立",
+        "value": 1155426.0,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "iDeCo",
+        "item_name": "ニッセイ日経平均インデックスファンド（購入・換金手数料なし）（ﾆｯｾｲ日経平均ｲﾝﾃﾞｯｸｽ(購入･換金手数料なし)）",
+        "asset_type": "積立",
+        "value": 1997548.0,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "iDeCo",
+        "item_name": "ＳＢＩ・全世界株式インデックス・ファンド（SBI･全世界株式ｲﾝﾃﾞｯｸｽ･ﾌｧﾝﾄﾞ）",
+        "asset_type": "積立",
+        "value": 1129368.0,
+        "updated_at": "2026-05-24"
+    },
+    {
+        "owner": "弥生",
+        "account": "iDeCo",
+        "item_name": "ｅＭＡＸＩＳ　Ｓｌｉｍ　全世界株式（除く日本）（eMAXIS Slim 全世界株式(除く日本)）",
+        "asset_type": "積立",
+        "value": 36059.0,
+        "updated_at": "2026-05-24"
+    }
+]
