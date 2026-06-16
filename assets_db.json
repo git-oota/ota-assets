@@ -1,154 +1,164 @@
 [
     {
-        "owner": "秀行",
-        "account": "NISA",
-        "item_name": "現金",
-        "asset_type": "現金",
-        "value": 1217001.0,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "秀行",
-        "account": "NISA",
-        "item_name": "ＳＢＩ・ｉシェアーズ・インド株式インデックス・ファンド",
-        "asset_type": "成長",
-        "value": 177941.64,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "秀行",
-        "account": "NISA",
-        "item_name": "ＳＢＩ日本高配当株式（分配）ファンド（年４回決算型）",
-        "asset_type": "成長",
-        "value": 607684.51,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "秀行",
-        "account": "NISA",
-        "item_name": "ＳＢＩ・Ｖ・米国高配当株式インデックス・ファンド（年４回決算型）",
-        "asset_type": "成長",
-        "value": 443002.52,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "秀行",
-        "account": "NISA",
-        "item_name": "ＳＢＩ・Ｓ・米国高配当株式ファンド（年４回決算型）",
-        "asset_type": "成長",
-        "value": 508516.25,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "秀行",
-        "account": "NISA",
-        "item_name": "ＳＢＩ・ｉシェアーズ・ゴールドファンド（為替ヘッジなし）",
-        "asset_type": "成長",
-        "value": 572871.93,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "弥生",
-        "account": "NISA",
-        "item_name": "現金",
-        "asset_type": "現金",
-        "value": 529297.0,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "弥生",
-        "account": "NISA",
-        "item_name": "ＮＴＴ",
-        "asset_type": "成長",
-        "value": 91560.0,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "弥生",
-        "account": "NISA",
-        "item_name": "イーストスプリング・インド・コア株式ファンド",
-        "asset_type": "成長",
-        "value": 782445.65,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "弥生",
-        "account": "NISA",
-        "item_name": "ＳＢＩ・ｉシェアーズ・インド株式インデックス・ファンド",
-        "asset_type": "成長",
-        "value": 397052.44,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "弥生",
-        "account": "NISA",
-        "item_name": "ＳＢＩ日本高配当株式（分配）ファンド（年４回決算型）",
-        "asset_type": "成長",
-        "value": 610627.06,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "弥生",
-        "account": "NISA",
-        "item_name": "ＳＢＩ・Ｖ・米国高配当株式インデックス・ファンド（年４回決算型）",
-        "asset_type": "成長",
-        "value": 316251.73,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "弥生",
-        "account": "NISA",
-        "item_name": "ＳＢＩ・Ｓ・米国高配当株式ファンド（年４回決算型）",
-        "asset_type": "成長",
-        "value": 639298.91,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "弥生",
-        "account": "NISA",
-        "item_name": "ＳＢＩ・ｉシェアーズ・ゴールドファンド（為替ヘッジなし）",
-        "asset_type": "成長",
-        "value": 620028.47,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "秀行",
-        "account": "DC",
-        "item_name": "ニッセイ日経平均インデックスファンド（購入・換金手数料なし）（ﾆｯｾｲ日経平均ｲﾝﾃﾞｯｸｽ(購入･換金手数料なし)）",
-        "asset_type": "積立",
-        "value": 1250254.0,
-        "updated_at": "2026-05-24"
-    },
-    {
-        "owner": "秀行",
-        "account": "DC",
-        "item_name": "ｅＭＡＸＩＳ　Ｓｌｉｍ　全世界株式（オール・カントリー）（eMAXIS Slim 全世界株式(ｵｰﾙ･ｶﾝﾄﾘｰ)）",
-        "asset_type": "積立",
-        "value": 1155426.0,
-        "updated_at": "2026-05-24"
-    },
-    {
         "owner": "弥生",
         "account": "iDeCo",
         "item_name": "ニッセイ日経平均インデックスファンド（購入・換金手数料なし）（ﾆｯｾｲ日経平均ｲﾝﾃﾞｯｸｽ(購入･換金手数料なし)）",
         "asset_type": "積立",
-        "value": 1997548.0,
-        "updated_at": "2026-05-24"
+        "value": 3820851.0,
+        "saved_index": 5,
+        "updated_at": "2026-06-16"
     },
     {
         "owner": "弥生",
         "account": "iDeCo",
         "item_name": "ＳＢＩ・全世界株式インデックス・ファンド（SBI･全世界株式ｲﾝﾃﾞｯｸｽ･ﾌｧﾝﾄﾞ）",
         "asset_type": "積立",
-        "value": 1129368.0,
-        "updated_at": "2026-05-24"
+        "value": 1181611.0,
+        "saved_index": 11,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "秀行",
+        "account": "DC",
+        "item_name": "ニッセイ日経平均インデックスファンド（購入・換金手数料なし）（ﾆｯｾｲ日経平均ｲﾝﾃﾞｯｸｽ(購入･換金手数料なし)）",
+        "asset_type": "積立",
+        "value": 2614913.0,
+        "saved_index": 5,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "秀行",
+        "account": "DC",
+        "item_name": "ｅＭＡＸＩＳ　Ｓｌｉｍ　全世界株式（オール・カントリー）（eMAXIS Slim 全世界株式(ｵｰﾙ･ｶﾝﾄﾘｰ)）",
+        "asset_type": "積立",
+        "value": 1185099.0,
+        "saved_index": 11,
+        "updated_at": "2026-06-16"
     },
     {
         "owner": "弥生",
-        "account": "iDeCo",
-        "item_name": "ｅＭＡＸＩＳ　Ｓｌｉｍ　全世界株式（除く日本）（eMAXIS Slim 全世界株式(除く日本)）",
+        "account": "NISA",
+        "item_name": "NTT",
+        "asset_type": "成長",
+        "value": 87540.0,
+        "saved_index": 43,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "イーストスプリング・インド・コア株式ファンド",
+        "asset_type": "成長",
+        "value": 794700.28,
+        "saved_index": 80,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・ｉシェアーズ・インド株式インデックス・ファンド",
+        "asset_type": "成長",
+        "value": 403493.66,
+        "saved_index": 92,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ日本高配当株式（分配）ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 670367.39,
+        "saved_index": 104,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・Ｖ・米国高配当株式インデックス・ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 344711.97,
+        "saved_index": 116,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・Ｓ・米国高配当株式ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 694985.71,
+        "saved_index": 128,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・ｉシェアーズ・ゴールドファンド（為替ヘッジなし）",
+        "asset_type": "成長",
+        "value": 584048.45,
+        "saved_index": 140,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "弥生",
+        "account": "NISA",
+        "item_name": "ｅＭＡＸＩＳ　Ｓｌｉｍ　国内株式（日経平均）",
         "asset_type": "積立",
-        "value": 36059.0,
-        "updated_at": "2026-05-24"
+        "value": 239645.95,
+        "saved_index": 177,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "現金",
+        "asset_type": "現金",
+        "value": 2617001.0,
+        "saved_index": 12,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・ｉシェアーズ・インド株式インデックス・ファンド",
+        "asset_type": "積立",
+        "value": 180828.32,
+        "saved_index": 43,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ日本高配当株式（分配）ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 667334.5,
+        "saved_index": 55,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・Ｖ・米国高配当株式インデックス・ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 474727.65,
+        "saved_index": 67,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・Ｓ・米国高配当株式ファンド（年４回決算型）",
+        "asset_type": "成長",
+        "value": 561075.51,
+        "saved_index": 79,
+        "updated_at": "2026-06-16"
+    },
+    {
+        "owner": "秀行",
+        "account": "NISA",
+        "item_name": "ＳＢＩ・ｉシェアーズ・ゴールドファンド（為替ヘッジなし）",
+        "asset_type": "成長",
+        "value": 539628.38,
+        "saved_index": 91,
+        "updated_at": "2026-06-16"
     }
 ]
