@@ -37,7 +37,6 @@ def load_data():
     return pd.DataFrame()
 
 df = load_data()
-
 def categorize(name):
     n = str(name)
     if "現金" in n: return "現金"
@@ -81,10 +80,11 @@ tab_p1, tab_data = st.tabs(["現状維持", "📂 データ確認"])
 with tab_p1:
     if not df.empty:
         val_total = df['value'].sum()
+        val_cash = df[df['cat'] == "現金"]['value'].sum()
         val_k = df[df['cat'] == "高配当"]['value'].sum()
         val_o = df[df['cat'] == "オルカン"]['value'].sum()
         val_j = df[df['cat'] == "日本株"]['value'].sum()
-        val_others = df[df['cat'] == "その他"]['value'].sum() + df[df['cat'] == "現金"]['value'].sum()
+        val_others = df[df['cat'] == "その他"]['value'].sum()
 
         val_nisa_current = df[df['account'] == 'NISA']['value'].sum()
         val_nenkin_current = df[df['account'].isin(['DC', 'iDeCo'])]['value'].sum()
@@ -97,9 +97,11 @@ with tab_p1:
         p_nenkin = val_nenkin_current
 
         # シミュレーション用変数 (カテゴリ別運用利回り計算用)
+        sim_cash = val_cash
         sim_k, sim_o, sim_j, sim_others = val_k, val_o, val_j, val_others
 
         # 拠出金（元本）のみを純粋に追跡する変数
+        p_cash = val_cash
         p_k, p_o, p_j, p_others = val_k, val_o, val_j, val_others
         principal = val_total
 
@@ -142,18 +144,19 @@ with tab_p1:
                     nisa_used_growth += monthly_k
                     nisa_used_total += monthly_k
 
-                # 利回りの適用 (月次複利) ※0%の場合は計算しない
+                # 利回りの適用 (月次複利) ※0%の場合は計算しない。現金(sim_cash)は利回り計算から除外
                 if growth_rate > 0:
                     factor = (1 + growth_rate)**(1/12)
                     sim_k *= factor
                     sim_o *= factor
                     sim_j *= factor
                     sim_others *= factor
-                    
+
                     sim_nisa *= factor
                     sim_nenkin *= factor
 
-            history.append(sim_k + sim_o + sim_j + sim_others)
+            # 現金を含めた総資産額を履歴に追加
+            history.append(sim_cash + sim_k + sim_o + sim_j + sim_others)
             years_list.append(current_year + i)
 
         # NISA残枠計算
@@ -168,11 +171,12 @@ with tab_p1:
         # サブヘッダー
         st.markdown('<p class="small-subheader">現在資産 ＆ 将来予測</p>', unsafe_allow_html=True)
 
-        c1, c2, c3, c4 = st.columns(4)
+        c1, c2, c3, c4, c5 = st.columns(5)
         c1.metric("現在の総資産額", f"{val_total/10000:,.0f} 万円")
-        c2.metric("NISA口座 (現在)", f"{val_nisa_current/10000:,.0f} 万円")
-        c3.metric("DC / iDeCo (現在)", f"{val_nenkin_current/10000:,.0f} 万円")
-        c4.metric("高配当投信 (現在)", f"{val_k/10000:,.0f} 万円")
+        c2.metric("現金 (現在)", f"{val_cash/10000:,.0f} 万円")
+        c3.metric("NISA口座 (現在)", f"{val_nisa_current/10000:,.0f} 万円")
+        c4.metric("DC / iDeCo (現在)", f"{val_nenkin_current/10000:,.0f} 万円")
+        c5.metric("高配当投信 (現在)", f"{val_k/10000:,.0f} 万円")
 
         st.markdown("<div class='projection-bar'>", unsafe_allow_html=True)
         m1, m2, m3, m4, m5, m6, m7 = st.columns(7)
@@ -190,9 +194,9 @@ with tab_p1:
         with g_l:
             st.markdown("**ポートフォリオ（拠出金）**")
             data_b = {
-                'カテゴリ': ["高配当", "オルカン", "日本株", "その他", "高配当", "オルカン", "日本株", "その他"],
-                '金額(万円)': [val_k/10000, val_o/10000, val_j/10000, val_others/10000, p_k/10000, p_o/10000, p_j/10000, p_others/10000],
-                'タイミング': ["現在", "現在", "現在", "現在", f"{years}年後", f"{years}年後", f"{years}年後", f"{years}年後"]
+                'カテゴリ': ["現金", "高配当", "オルカン", "日本株", "その他", "現金", "高配当", "オルカン", "日本株", "その他"],
+                '金額(万円)': [val_cash/10000, val_k/10000, val_o/10000, val_j/10000, val_others/10000, p_cash/10000, p_k/10000, p_o/10000, p_j/10000, p_others/10000],
+                'タイミング': ["現在", "現在", "現在", "現在", "現在", f"{years}年後", f"{years}年後", f"{years}年後", f"{years}年後", f"{years}年後"]
             }
             df_b = pd.DataFrame(data_b)
             df_b['比率'] = df_b.apply(lambda row: (row['金額(万円)'] * 10000) / val_total * 100 if row['タイミング'] == "現在" else (row['金額(万円)'] * 10000) / principal * 100, axis=1)
